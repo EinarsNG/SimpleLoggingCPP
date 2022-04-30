@@ -48,11 +48,10 @@ std::string LoggerInstance::formatLog(std::string& msg) noexcept
     return ss.str();
 }
 
-LoggerInstance LoggerInstance::operator<<(std::string msg)
+void LoggerInstance::operator<<(std::string msg)
 {
     for(auto & stream : streams)
         *stream << formatLog(msg);
-    return *this;
 }
 
 void LoggerInstance::addStream(std::ostream* stream)

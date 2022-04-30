@@ -34,7 +34,7 @@ private:
 public:
     LoggerInstance(LogLevel logLevel);
 
-    LoggerInstance operator<<(std::string msg);
+    void operator<<(std::string msg);
 
     void addStream(std::ostream* stream);
     void removeStream(std::ostream* stream);
