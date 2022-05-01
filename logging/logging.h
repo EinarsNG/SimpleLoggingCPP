@@ -12,6 +12,7 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
+#include <mutex>
 
 enum LogLevel
 {
@@ -28,6 +29,7 @@ private:
     std::string			name;
     LogLevel			logLevel;
     std::vector<std::ostream*>	streams;
+    std::mutex			streamMtx;
 
     std::string logLevelStr() noexcept;
     std::string formatLog(std::string& msg) noexcept;

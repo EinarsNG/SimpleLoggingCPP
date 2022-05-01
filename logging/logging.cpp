@@ -50,6 +50,7 @@ std::string LoggerInstance::formatLog(std::string& msg) noexcept
 
 void LoggerInstance::operator<<(std::string msg)
 {
+    std::lock_guard<std::mutex> lock(streamMtx);
     for(auto & stream : streams)
         *stream << formatLog(msg);
 }
